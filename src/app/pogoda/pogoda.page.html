@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pogoda</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-spinner *ngIf="!pogoda" name="crescent"></ion-spinner>
+<ion-content *ngIf="pogoda">
+
+  <ion-card style="background-color:rgb(218, 241, 233)">
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title style="text-align:center">{{ pogoda.location.country }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+    
+
+      <div style="width:100%;display:flex;justify-content:center">
+        <img style="width:100px;height:100px" :src="{{pogoda.current.condition.icon}}" />
+      </div>
+ 
+
+      <ion-list>
+        <ion-item>
+          <ion-label>Temperatura</ion-label>
+          <ion-badge color="primary">{{pogoda.current.feelslike_c}}C</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Miasto</ion-label>
+          <ion-badge color="secondary">{{pogoda.location.name}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Data</ion-label>
+          <ion-badge color="tertiary">{{pogoda.location.localtime}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Prędkość wiatru</ion-label>
+          <ion-badge color="success">{{pogoda.current.gust_kph}}km/h</ion-badge>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  
+    
+  
+
+</ion-content>
+
